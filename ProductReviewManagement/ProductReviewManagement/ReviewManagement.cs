@@ -42,5 +42,15 @@ namespace ProductReviewManagement
 
             }
         }
+        //UC4 count of review present for each product ID
+        public void countOFReviewForProductID(List<ProductReview> productReviews)
+        {
+            var result = (productReviews.GroupBy(product => product.ProductId).Select(p => new {ProductID = p.Key, Count = p.Count()}));
+            Console.WriteLine("Product ID\t|\tCount");
+            foreach (var item in result)
+            {
+                Console.WriteLine("\t"+ item.ProductID + "\t|\t" + item.Count);
+            }
+        }
     }
 }
