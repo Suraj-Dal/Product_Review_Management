@@ -39,7 +39,7 @@ namespace ProductReviewManagement
                 new ProductReview() { ProductId = 25, UserId = 12, Rating = 2, Review = "Average", isLike = false }, 
             };
             ProductReviewManagement.ReviewManagement reviewManagement = new ProductReviewManagement.ReviewManagement();
-            Console.WriteLine("0.Exit\n1.View Reviews\n2.Top 3 High rated Records\nEnter your choice:");
+            Console.WriteLine("0.Exit\n1.View Reviews\n2.Top 3 High rated Records\n3.Ratings greater than 3\nEnter your choice:");
             int choice = Convert.ToInt32(Console.ReadLine());
             while (choice != 0)
             {
@@ -50,6 +50,9 @@ namespace ProductReviewManagement
                         break;
                     case 2:
                         reviewManagement.top3HighRatedRecords(productReviews);
+                        break;
+                    case 3:
+                        reviewManagement.ratingsGreaterThan3(productReviews);
                         break;
                     default:
                         Console.WriteLine("Enter valid choice.");
