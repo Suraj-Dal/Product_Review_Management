@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,25 @@ namespace ProductReviewManagement
             foreach (var item in result)
             {
                 Console.WriteLine("Product ID: " + item.ProductId + "\tUser ID: " + item.UserId + "\tRating: " + item.Rating + "\tReview: " + item.Review + "\tisLike: " + item.isLike);
+            }
+        }
+        //UC 8 to create datatable and add values in it.
+        public void createDatatable(List<ProductReview> productReviews)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ProductID", typeof(Int32)); 
+            table.Columns.Add("UserID", typeof(Int32)); 
+            table.Columns.Add("Rating", typeof(Int32));
+            table.Columns.Add("Review", typeof(string)); 
+            table.Columns.Add("isLike", typeof(bool)); 
+            foreach(var item in productReviews)
+            {
+                table.Rows.Add(item.ProductId, item.UserId, item.Rating, item.Review, item.isLike);
+            }
+            Console.WriteLine("Records in DataTable.");
+            foreach(var item in table.AsEnumerable())
+            {
+                Console.WriteLine("ProductID: "+ item.Field<int>("ProductID") +"\tUserID: "+ item.Field<int>("UserID") +"\tRating: "+ item.Field<int>("Rating") +"\tReview: "+ item.Field<string>("Review") +"\tisLike: "+ item.Field<bool>("isLike"));
             }
         }
     }
