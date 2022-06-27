@@ -26,11 +26,11 @@ namespace ProductReviewManagement
                 new ProductReview() { ProductId = 12, UserId = 4, Rating = 1, Review = "Very Bad", isLike = true },
                 new ProductReview() { ProductId = 13, UserId = 12, Rating = 5, Review = "Excelent", isLike = false },
                 new ProductReview() { ProductId = 4, UserId =17, Rating = 2, Review = "Average", isLike = true }, 
-                new ProductReview() { ProductId = 15, UserId = 13, Rating = 3, Review = "Nice", isLike = true },
+                new ProductReview() { ProductId = 15, UserId = 10, Rating = 3, Review = "Nice", isLike = true },
                 new ProductReview() { ProductId = 16, UserId = 8, Rating = 1, Review = "Very Bad", isLike = false }, 
                 new ProductReview() { ProductId = 17, UserId = 18, Rating = 5, Review = "Excelent", isLike = true }, 
                 new ProductReview() { ProductId = 18, UserId = 9, Rating = 4, Review = "Good", isLike = true }, 
-                new ProductReview() { ProductId = 19, UserId = 10, Rating = 3, Review = "Nice", isLike = false }, 
+                new ProductReview() { ProductId = 19, UserId = 10, Rating = 5, Review = "Nice", isLike = false }, 
                 new ProductReview() { ProductId = 20, UserId = 7, Rating = 2, Review = "Average", isLike = true },
                 new ProductReview() { ProductId = 21, UserId = 6, Rating = 1, Review = "Bad", isLike = true },
                 new ProductReview() { ProductId = 22, UserId = 5, Rating = 1, Review = "Very Bad", isLike = false }, 
@@ -39,7 +39,7 @@ namespace ProductReviewManagement
                 new ProductReview() { ProductId = 25, UserId = 12, Rating = 2, Review = "Average", isLike = false }, 
             };
             ProductReviewManagement.ReviewManagement reviewManagement = new ProductReviewManagement.ReviewManagement();
-            Console.WriteLine("0.Exit\n1.View Reviews\n2.Top 3 High rated Records\n3.Ratings greater than 3\n4.Count of Reviews for Product ID\n5.Product ID and Review\n6.Skip 5 records\n7.Product ID and Review using select LINQ\n8.Records in DataTable\n9.Records who's isLike Value is true\n10.Average Rating of All Product ID\n11.Review Nice\nEnter your choice:");
+            Console.WriteLine("0.Exit\n1.View Reviews\n2.Top 3 High rated Records\n3.Ratings greater than 3\n4.Count of Reviews for Product ID\n5.Product ID and Review\n6.Skip 5 records\n7.Product ID and Review using select LINQ\n8.Records in DataTable\n9.Records who's isLike Value is true\n10.Average Rating of All Product ID\n11.Review Nice\n12.Records for UserID 10\nEnter your choice:");
             int choice = Convert.ToInt32(Console.ReadLine());
             while (choice != 0)
             {
@@ -81,11 +81,15 @@ namespace ProductReviewManagement
                         table = reviewManagement.createDatatable(productReviews);
                         reviewManagement.reviewNice(table);
                         break;
+                    case 12:
+                        table = reviewManagement.createDatatable(productReviews);
+                        reviewManagement.RecordsForUserID10(table);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;
                 }
-                Console.WriteLine("0.Exit\n1.View Reviews\n2.Top 3 High rated Records\n3.Ratings greater than 3\n4.Count of Reviews for Product ID\n5.Product ID and Review\n6.Skip 5 records\n7.Product ID and Review using select LINQ\n8.Records in DataTable\n9.Records who's isLike Value is true\n10.Average Rating of All Product ID\n11.Review Nice\nEnter your choice:");
+                Console.WriteLine("0.Exit\n1.View Reviews\n2.Top 3 High rated Records\n3.Ratings greater than 3\n4.Count of Reviews for Product ID\n5.Product ID and Review\n6.Skip 5 records\n7.Product ID and Review using select LINQ\n8.Records in DataTable\n9.Records who's isLike Value is true\n10.Average Rating of All Product ID\n11.Review Nice\n12.Records for UserID 10\nEnter your choice:");
                 choice = Convert.ToInt32(Console.ReadLine());
             }
 
